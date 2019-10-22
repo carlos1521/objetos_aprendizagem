@@ -11,7 +11,7 @@ class DesignCourseHomeScreen extends StatefulWidget {
 }
 
 class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
-  CategoryType categoryType = CategoryType.ui;
+  CategoryType categoryType = CategoryType.videos;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
         Padding(
           padding: const EdgeInsets.only(top: 8.0, left: 18, right: 16),
           child: Text(
-            "Category",
+            "Categorias",
             textAlign: TextAlign.left,
             style: TextStyle(
               fontWeight: FontWeight.w600,
@@ -73,17 +73,27 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
           padding: const EdgeInsets.only(left: 16, right: 16),
           child: Row(
             children: <Widget>[
-              getButtonUI(CategoryType.ui, categoryType == CategoryType.ui),
+              getButtonUI(CategoryType.videos, categoryType == CategoryType.videos),
               SizedBox(
                 width: 16,
               ),
               getButtonUI(
-                  CategoryType.coding, categoryType == CategoryType.coding),
+                  CategoryType.livros, categoryType == CategoryType.livros),
               SizedBox(
                 width: 16,
               ),
               getButtonUI(
-                  CategoryType.basic, categoryType == CategoryType.basic),
+                  CategoryType.artigos, categoryType == CategoryType.artigos),
+              SizedBox(
+                width: 16,
+              ),
+              getButtonUI(
+                  CategoryType.audios, categoryType == CategoryType.audios),
+              SizedBox(
+                width: 16,
+              ),
+              getButtonUI(
+                  CategoryType.games, categoryType == CategoryType.games),
             ],
           ),
         ),
@@ -139,12 +149,16 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
 
   Widget getButtonUI(CategoryType categoryTypeData, bool isSelected) {
     var txt = '';
-    if (CategoryType.ui == categoryTypeData) {
-      txt = 'Ui/Ux';
-    } else if (CategoryType.coding == categoryTypeData) {
-      txt = 'Coding';
-    } else if (CategoryType.basic == categoryTypeData) {
-      txt = 'Basic UI';
+    if (CategoryType.videos == categoryTypeData) {
+      txt = 'Vídeo';
+    } else if (CategoryType.livros == categoryTypeData) {
+      txt = 'Livro';
+    } else if (CategoryType.artigos == categoryTypeData) {
+      txt = 'Artigo';
+    } else if (CategoryType.audios == categoryTypeData) {
+      txt = 'Áudio';
+    } else if (CategoryType.games == categoryTypeData) {
+      txt = 'Game';
     }
     return Expanded(
       child: Container(
@@ -305,7 +319,9 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
 }
 
 enum CategoryType {
-  ui,
-  coding,
-  basic,
+  videos,
+  livros,
+  artigos,
+  audios,
+  games,
 }

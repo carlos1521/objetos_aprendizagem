@@ -1,6 +1,6 @@
-# best_flutter_ui_templates
+# Objetos de Aprendizagem
 
-A new Flutter project.
+Aplicativo de Recomendacao de Objetos de Aprendizagem.
 
 ## Getting Started
 
