@@ -29,10 +29,8 @@ class _HomeDrawerState extends State<HomeDrawer> {
         icon: new Icon(Icons.home),
       ),
       DrawerList(
-        index: DrawerIndex.Help,
+        index: DrawerIndex.Perfil,
         labelName: 'Perfil',
-        //isAssetsImage: true,
-        //imageName: "assets/images/supportIcon.png",
         icon: new Icon(Icons.person),
       ),
       DrawerList(
@@ -286,7 +284,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
 enum DrawerIndex {
   HOME,
   FeedBack,
-  Help,
+  Perfil,
   Share,
   About,
   Invite,

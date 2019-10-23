@@ -2,7 +2,8 @@ import 'package:best_flutter_ui_templates/appTheme.dart';
 import 'package:best_flutter_ui_templates/customDrawer/drawerUserController.dart';
 import 'package:best_flutter_ui_templates/customDrawer/homeDrawer.dart';
 import 'package:best_flutter_ui_templates/feedbackScreen.dart';
-import 'package:best_flutter_ui_templates/helpScreen.dart';
+//import 'package:best_flutter_ui_templates/helpScreen.dart';
+import 'package:best_flutter_ui_templates/perfilScreen.dart';
 import 'package:best_flutter_ui_templates/homeScreen.dart';
 import 'package:best_flutter_ui_templates/inviteFriendScreen.dart';
 import 'package:flutter/material.dart';
@@ -56,9 +57,9 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
         setState(() {
           screenView = MyHomePage();
         });
-      } else if (drawerIndex == DrawerIndex.Help) {
+      } else if (drawerIndex == DrawerIndex.Perfil) {
         setState(() {
-          screenView = HelpScreen();
+          screenView = PerfilScreen();
         });
       } else if (drawerIndex == DrawerIndex.FeedBack) {
         setState(() {
