@@ -103,7 +103,7 @@ class LoginPage extends StatelessWidget {
                       ),
                       Container(
                         child: SizedBox(
-                          child: Image.asset("assets/bone.png"),
+                          //child: Image.asset("assets/bone.png"),
                           height: 28,
                           width: 28,
                         ),
@@ -149,7 +149,7 @@ class LoginPage extends StatelessWidget {
                       ),
                       Container(
                         child: SizedBox(
-                          child: Image.asset("assets/fb-icon.png"),
+                          //child: Image.asset("assets/fb-icon.png"),
                           height: 28,
                           width: 28,
                         ),

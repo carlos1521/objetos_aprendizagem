@@ -3,7 +3,7 @@ import 'package:best_flutter_ui_templates/appTheme.dart';
 import 'package:best_flutter_ui_templates/pages/login.page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'navigationHomeScreen.dart';
+//import 'navigationHomeScreen.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations(
