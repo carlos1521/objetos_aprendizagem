@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class PerfilScreen extends StatefulWidget {
   @override
-  _PerfilScreenState createState() => _PerfilScreenState();
+  _PerfilScreenState createState() => _PerfilScreenState(); 
 }
 
 class _PerfilScreenState extends State<PerfilScreen> {
@@ -11,6 +11,16 @@ class _PerfilScreenState extends State<PerfilScreen> {
   void initState() {
     super.initState();
   }
+
+  bool _value = false;
+
+  void _onChanged(bool value){
+   setState(() {
+    _value = value; 
+   }); 
+  }
+
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +68,21 @@ class _PerfilScreenState extends State<PerfilScreen> {
                     fontSize: 16,
                   ),
                 ),
+              ),
+              Container(
+                padding: new EdgeInsets.only(top:16),
+                child: new Column(
+                  children: <Widget>[
+                    //new Switch(value: _value, onChanged: (bool value){_onChanged(value);}),
+                    new SwitchListTile(
+                     title: new Text('Solicitar Perfil de Avaliador'),
+                     activeColor: Colors.blue,
+                     secondary: const Icon(Icons.verified_user),
+                     value: _value,
+                     onChanged:(bool value){_onChanged(value);} 
+                    )
+                  ]
+                )
               ),
               Expanded(
                 child: Padding(
