@@ -1,3 +1,4 @@
+import 'package:best_flutter_ui_templates/designCourse/homeDesignCourse.dart';
 import 'package:flutter/material.dart';
 
 import '../navigationHomeScreen.dart';
@@ -61,7 +62,7 @@ class LoginPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => NavigationHomeScreen(),
+                      builder: (context) => DesignCourseHomeScreen(),
                     ),
                   );
                 },
@@ -114,7 +115,7 @@ class LoginPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => NavigationHomeScreen(),
+                        builder: (context) => DesignCourseHomeScreen(),
                       ),
                     );
                   },
@@ -149,7 +150,7 @@ class LoginPage extends StatelessWidget {
                       ),
                       Container(
                         child: SizedBox(
-                          //child: Image.asset("assets/fb-icon.png"),
+                          child: Image.asset("assets/fb-icon.png"),
                           height: 28,
                           width: 28,
                         ),
@@ -174,7 +175,7 @@ class LoginPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => NavigationHomeScreen(),
+                      builder: (context) => DesignCourseHomeScreen(),
                     ),
                   );
                 },

@@ -18,13 +18,80 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
     return Container(
       color: DesignCourseAppTheme.nearlyWhite,
       child: Scaffold(
+        appBar: new AppBar(
+          title: new Text("Objetos de Aprendizagem App"), 
+          backgroundColor: Colors.lightBlue,
+          ),
+        drawer: new Drawer(
+        child: new ListView(
+          children: <Widget>[
+            new UserAccountsDrawerHeader(
+              accountName: Text('Juliana Martins'),
+              accountEmail: Text('julianamar@gmail.com'),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.lightBlue,
+                child: Text(
+                  'J',
+                  style: TextStyle(fontSize: 40.0),
+                ),
+              ),
+              /*decoration: new BoxDecoration(
+                image: new DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage('assets/images/user_woman.jpg')
+                ),
+              ),*/
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("Perfil"),
+              trailing: new Icon(Icons.person),
+              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                //builder: (BuildContext context) => Calculadora(),
+              )),
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("Favoritos"),
+              trailing: new Icon(Icons.favorite),
+              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                //builder: (BuildContext context) => Nosotros(),
+              )),
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("Listas"),
+              trailing: new Icon(Icons.list),
+              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                //builder: (BuildContext context) => Nosotros(),
+              )),
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("Meus Arquivos"),
+              trailing: new Icon(Icons.school),
+              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                //builder: (BuildContext context) => Nosotros(),
+              )),
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("Preferências"),
+              trailing: new Icon(Icons.settings),
+              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                //builder: (BuildContext context) => Nosotros(),
+              )),
+            ),
+          ],
+        ),
+      ),
         backgroundColor: Colors.transparent,
         body: Column(
           children: <Widget>[
             SizedBox(
               height: MediaQuery.of(context).padding.top,
             ),
-            getAppBarUI(),
+            //getAppBarUI(),
             Expanded(
               child: SingleChildScrollView(
                 child: Container(
@@ -47,6 +114,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
       ),
     );
   }
+
 
   Widget getCategoryUI() {
     return Column(
@@ -238,7 +306,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
                           ),
                           keyboardType: TextInputType.text,
                           decoration: new InputDecoration(
-                            labelText: 'Search for course',
+                            labelText: 'Procurar OAs',
                             border: InputBorder.none,
                             helperStyle: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -279,13 +347,39 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
       padding: const EdgeInsets.only(top: 8.0, left: 18, right: 18),
       child: Row(
         children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(top: 8, right: 8),
+            child: Container(
+              width: AppBar().preferredSize.height - 8,
+              height: AppBar().preferredSize.height - 8,
+              color: Colors.white,
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  borderRadius:
+                      new BorderRadius.circular(AppBar().preferredSize.height),
+                  child: Icon(
+                    Icons.view_list,
+                  ),
+                  //  multiple ? Icons.dashboard : Icons.view_agenda,
+                  //  color: AppTheme.dark_grey,
+                  //),
+                  onTap: () {
+                   // setState(() {
+                   //   multiple = !multiple;
+                  //  });
+                  },
+                ),
+              ),
+            ),
+          ),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Choose your",
+                  "Selecione seu",
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
@@ -295,11 +389,11 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
                   ),
                 ),
                 Text(
-                  "Design Course",
+                  "Objeto de Apendizagem",
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 22,
+                    fontSize: 20,
                     letterSpacing: 0.27,
                     color: DesignCourseAppTheme.darkerText,
                   ),
@@ -310,7 +404,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
           Container(
             width: 60,
             height: 60,
-            child: Image.asset('assets/design_course/userImage.png'),
+            child: Image.asset('assets/images/user_woman.jpg'),
           )
         ],
       ),
