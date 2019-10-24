@@ -2,6 +2,11 @@ import 'package:best_flutter_ui_templates/designCourse/categoryListView.dart';
 import 'package:best_flutter_ui_templates/designCourse/courseInfoScreen.dart';
 import 'package:best_flutter_ui_templates/designCourse/popularCourseListView.dart';
 import 'package:best_flutter_ui_templates/main.dart';
+import 'package:best_flutter_ui_templates/pages/favoritos_page.dart';
+import 'package:best_flutter_ui_templates/pages/listas_page.dart';
+import 'package:best_flutter_ui_templates/pages/login.page.dart';
+import 'package:best_flutter_ui_templates/pages/perfil_page.dart';
+import 'package:best_flutter_ui_templates/pages/preferencias_page.dart';
 import 'package:flutter/material.dart';
 import 'designCourseAppTheme.dart';
 
@@ -12,6 +17,35 @@ class DesignCourseHomeScreen extends StatefulWidget {
 
 class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
   CategoryType categoryType = CategoryType.videos;
+
+  //int _currentIndex = 0;
+  //List<Widget> _tabList = [];
+  int _selectedPage = 0;
+  final _pageOptions = [
+    Text('Home', style: TextStyle(fontSize: 36.0),),
+    Text('LiSTA', style: TextStyle(fontSize: 36.0),),
+    Text('Casdtras OA', style: TextStyle(fontSize: 36.0),),
+  ];
+
+  List<Container> listamos = List();
+  var arreglox = [
+    {"nombre": "AutoCAD", "imagen": "autocad.jpg", "deporte": ""},
+    {"nombre": "Contabilidade", "imagen": "contabilidade.jpg", "deporte": ""},
+    {"nombre": "Inglês", "imagen": "ingles.jpg", "deporte": ""},
+    {"nombre": "Kotlin", "imagen": "kotlin.jpg", "deporte": ""},
+    {"nombre": "Python", "imagen": "python.jpg", "deporte": ""},
+    {"nombre": "Informática", "imagen": "informatica.jpeg", "deporte": ""},
+    {"nombre": "Fotografía", "imagen": "fotografia.jpg", "deporte": ""},
+    {"nombre": "Proceso de Ensino e Aprendizagem", "imagen": "ensino_aprendizagem.jpg", "deporte": ""},
+    {"nombre": "Electrônica Digital", "imagen": "electronica.jpg", "deporte": ""},
+    {"nombre": "Francês", "imagen": "frances.jpg", "deporte": ""},
+    {"nombre": "Cozinha Brasileira", "imagen": "cozinha.jpg", "deporte": ""},
+    {"nombre": "Marketing Digital", "imagen": "marketing.png", "deporte": ""},
+    {"nombre": "Nutrição", "imagen": "nutricao.jpg", "deporte": ""},
+    {"nombre": "Historia Peruana", "imagen": "historia.jpg", "deporte": ""},
+    {"nombre": "Acidente Vascular Cerebral", "imagen": "avc.jpg", "deporte": ""},
+  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +81,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
               title: new Text("Perfil"),
               trailing: new Icon(Icons.person),
               onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                //builder: (BuildContext context) => Calculadora(),
+                builder: (BuildContext context) => Perfil(),
               )),
             ),
             new Divider(),
@@ -55,7 +89,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
               title: new Text("Favoritos"),
               trailing: new Icon(Icons.favorite),
               onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                //builder: (BuildContext context) => Nosotros(),
+                builder: (BuildContext context) => Favoritos(),
               )),
             ),
             new Divider(),
@@ -63,7 +97,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
               title: new Text("Listas"),
               trailing: new Icon(Icons.list),
               onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                //builder: (BuildContext context) => Nosotros(),
+                builder: (BuildContext context) => Listas(),
               )),
             ),
             new Divider(),
@@ -79,7 +113,15 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
               title: new Text("Preferências"),
               trailing: new Icon(Icons.settings),
               onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                //builder: (BuildContext context) => Nosotros(),
+                builder: (BuildContext context) => Preferencias(),
+              )),
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("Sair"),
+              trailing: new Icon(Icons.exit_to_app),
+              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                builder: (BuildContext context) => LoginPage(),
               )),
             ),
           ],
@@ -109,6 +151,29 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
               ),
             ),
             
+          ],
+        ),
+        //body: _pageOptions[_selectPage],
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _selectedPage,
+          onTap: (int index){
+            setState((){
+              _selectedPage = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              title: Text('Home'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.list),
+              title: Text('Lista'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.create_new_folder),
+              title: Text('Cadastrar OA'),
+            ),
           ],
         ),
       ),
@@ -185,11 +250,11 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "Popular Course",
+            "Temas Populares",
             textAlign: TextAlign.left,
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              fontSize: 22,
+              fontSize: 20,
               letterSpacing: 0.27,
               color: DesignCourseAppTheme.darkerText,
             ),
