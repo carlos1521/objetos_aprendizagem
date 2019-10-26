@@ -167,33 +167,6 @@ class CategoryView extends StatelessWidget {
                                                         .grey,
                                                   ),
                                                 ),
-                                                Container(
-                                                  child: Row(
-                                                    children: <Widget>[
-                                                      Text(
-                                                        "${category.rating}",
-                                                        textAlign:
-                                                            TextAlign.left,
-                                                        style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.w200,
-                                                          fontSize: 18,
-                                                          letterSpacing: 0.27,
-                                                          color:
-                                                              DesignCourseAppTheme
-                                                                  .grey,
-                                                        ),
-                                                      ),
-                                                      Icon(
-                                                        Icons.star,
-                                                        color:
-                                                            DesignCourseAppTheme
-                                                                .nearlyBlue,
-                                                        size: 20,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                )
                                               ],
                                             ),
                                           ),
@@ -208,16 +181,26 @@ class CategoryView extends StatelessWidget {
                                                   CrossAxisAlignment.start,
                                               children: <Widget>[
                                                 Text(
-                                                  "\$${category.money}",
-                                                  textAlign: TextAlign.left,
+                                                  "${category.rating}",
+                                                  textAlign:
+                                                    TextAlign.left,
                                                   style: TextStyle(
-                                                    fontWeight: FontWeight.w600,
-                                                    fontSize: 18,
-                                                    letterSpacing: 0.27,
-                                                    color: DesignCourseAppTheme
-                                                        .nearlyBlue,
+                                                  fontWeight:
+                                                    FontWeight.w200,
+                                                  fontSize: 18,
+                                                  letterSpacing: 0.27,
+                                                  color:
+                                                    DesignCourseAppTheme
+                                                      .grey,
                                                   ),
                                                 ),
+                                                Icon(
+                                                        Icons.star,
+                                                        color:
+                                                            DesignCourseAppTheme
+                                                                .nearlyBlue,
+                                                        size: 20,
+                                                      ), 
                                                 Container(
                                                   decoration: BoxDecoration(
                                                     color: DesignCourseAppTheme

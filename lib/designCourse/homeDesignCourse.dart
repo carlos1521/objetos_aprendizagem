@@ -21,12 +21,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
   //int _currentIndex = 0;
   //List<Widget> _tabList = [];
   int _selectedPage = 0;
-  final _pageOptions = [
-    Text('Home', style: TextStyle(fontSize: 36.0),),
-    Text('LiSTA', style: TextStyle(fontSize: 36.0),),
-    Text('Casdtras OA', style: TextStyle(fontSize: 36.0),),
-  ];
-
+ 
   List<Container> listamos = List();
   var arreglox = [
     {"nombre": "AutoCAD", "imagen": "autocad.jpg", "deporte": ""},
