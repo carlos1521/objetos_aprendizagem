@@ -1,4 +1,4 @@
-import 'package:best_flutter_ui_templates/designCourse/categoryListView.dart';
+//import 'package:best_flutter_ui_templates/designCourse/categoryListView.dart';
 import 'package:best_flutter_ui_templates/designCourse/courseInfoScreen.dart';
 import 'package:best_flutter_ui_templates/designCourse/popularCourseListView.dart';
 import 'package:best_flutter_ui_templates/main.dart';
@@ -9,14 +9,29 @@ import 'package:best_flutter_ui_templates/pages/perfil_page.dart';
 import 'package:best_flutter_ui_templates/pages/preferencias_page.dart';
 import 'package:flutter/material.dart';
 import 'designCourseAppTheme.dart';
+import 'package:best_flutter_ui_templates/FirstPage.dart' as first;
 
 class DesignCourseHomeScreen extends StatefulWidget {
   @override
   _DesignCourseHomeScreenState createState() => _DesignCourseHomeScreenState();
 }
 
-class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
+class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with SingleTickerProviderStateMixin {
   CategoryType categoryType = CategoryType.videos;
+
+   TabController controller;
+   
+   @override
+  void initState() {
+    super.initState();
+    controller = new TabController(vsync: this, length: 6);
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   //int _currentIndex = 0;
   //List<Widget> _tabList = [];
@@ -50,7 +65,18 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
         appBar: new AppBar(
           title: new Text("Objetos de Aprendizagem App"), 
           backgroundColor: Colors.lightBlue,
+          bottom: new TabBar(
+          controller: controller,
+          tabs: <Tab>[
+            new Tab(icon: new Icon(Icons.select_all),text: 'Todo'),
+            new Tab(icon: new Icon(Icons.video_library),text: 'Vídeo'),
+            new Tab(icon: new Icon(Icons.book),text: 'Livro'),
+            new Tab(icon: new Icon(Icons.school),text: 'Artigo'),
+            new Tab(icon: new Icon(Icons.library_music),text: 'Áudio'),
+            new Tab(icon: new Icon(Icons.games),text: 'Game'),
+            ]
           ),
+        ),
         drawer: new Drawer(
         child: new ListView(
           children: <Widget>[
@@ -123,32 +149,19 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
         ),
       ),
         backgroundColor: Colors.transparent,
-        body: Column(
+        body: 
+        //body: _pageOptions[_selectPage],
+        new TabBarView(
+          controller: controller,
           children: <Widget>[
-            SizedBox(
-              height: MediaQuery.of(context).padding.top,
-            ),
-            //getAppBarUI(),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Container(
-                  height: MediaQuery.of(context).size.height,
-                  child: Column(
-                    children: <Widget>[
-                      getSearchBarUI(),
-                      getCategoryUI(),
-                      Flexible(
-                        child: getPopularCourseUI(),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            
+            new first.First(),
+            new first.First(),
+            new first.First(),
+            new first.First(),
+            new first.First(),
+            new first.First()
           ],
         ),
-        //body: _pageOptions[_selectPage],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedPage,
           onTap: (int index){
@@ -228,11 +241,11 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
         SizedBox(
           height: 16,
         ),
-        CategoryListView(
+       /*  CategoryListView(
           callBack: () {
             moveTo();
           },
-        ),
+        ), */
       ],
     );
   }
@@ -315,7 +328,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> {
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
-                    fontSize: 12,
+                    fontSize: 10,
                     letterSpacing: 0.27,
                     color: isSelected
                         ? DesignCourseAppTheme.nearlyWhite

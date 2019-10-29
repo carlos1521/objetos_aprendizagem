@@ -46,6 +46,34 @@ class Category {
 
   static List<Category> popularCourseList = [
     Category(
+      imagePath: 'assets/images/autocad.jpg',
+      title: 'AutoCAD',
+      data: '24/10/2019',
+      money: 25,
+      rating: 4.3,
+    ),
+    Category(
+      imagePath: 'assets/images/contabilidade.jpg',
+      title: 'Contabilidade',
+      data: '15/08/2018',
+      money: 18,
+      rating: 4.6,
+    ),
+    Category(
+      imagePath: 'assets/images/electronica.jpg',
+      title: 'Electrônica Digital',
+      data: '10/12/2015',
+      money: 25,
+      rating: 4.3,
+    ),
+    Category(
+      imagePath: 'assets/images/kotlin.jpg',
+      title: 'Kotlin',
+      data: '21/05/2018',
+      money: 18,
+      rating: 4.6,
+    ),
+    Category(
       imagePath: 'assets/images/ensino_aprendizagem.jpg',
       title: 'Ensino Aprendizagem',
       data: '15/08/2018',
