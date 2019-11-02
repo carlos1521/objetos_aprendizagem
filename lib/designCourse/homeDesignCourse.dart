@@ -69,7 +69,40 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with Si
       color: DesignCourseAppTheme.nearlyWhite,
       child: Scaffold(
         appBar: new AppBar(
-          title: new Text("Objetos de Aprendizagem App"), 
+          title: Container(
+            margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
+            decoration: BoxDecoration(
+              color:Color.fromARGB(50, 255, 255, 255),
+              borderRadius: BorderRadius.all(Radius.circular(22.0)),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Buscar OA's",
+                      hintStyle: TextStyle(color: Colors.white),
+                      icon: Icon(Icons.search, color: Colors.white),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 0,
+                  child: Row(
+                    children: <Widget>[
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(Icons.mic, color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
           backgroundColor: Colors.lightBlue,
           bottom: new TabBar(
           controller: controller,
@@ -84,81 +117,81 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with Si
             ]
           ),
         ),
+        //MENU DESPLEGAVEL DA PARTE ESQUERDA
         drawer: new Drawer(
-        child: new ListView(
-          children: <Widget>[
-            new UserAccountsDrawerHeader(
-              accountName: Text('Juliana Martins'),
-              accountEmail: Text('julianamar@gmail.com'),
-              currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.lightBlue,
-                child: Text(
-                  'J',
-                  style: TextStyle(fontSize: 40.0),
+          child: new ListView(
+            children: <Widget>[
+              new UserAccountsDrawerHeader(
+                accountName: Text('Juliana Martins'),
+                accountEmail: Text('julianamar@gmail.com'),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Colors.lightBlue,
+                  child: Text(
+                    'J',
+                    style: TextStyle(fontSize: 40.0),
+                  ),
                 ),
+                /*decoration: new BoxDecoration(
+                  image: new DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage('assets/images/user_woman.jpg')
+                  ),
+                ),*/
               ),
-              /*decoration: new BoxDecoration(
-                image: new DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage('assets/images/user_woman.jpg')
-                ),
-              ),*/
-            ),
-            new Divider(),
-            new ListTile(
-              title: new Text("Perfil"),
-              trailing: new Icon(Icons.person),
-              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                builder: (BuildContext context) => Perfil(),
-              )),
-            ),
-            new Divider(),
-            new ListTile(
-              title: new Text("Favoritos"),
-              trailing: new Icon(Icons.favorite),
-              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                builder: (BuildContext context) => Favoritos(),
-              )),
-            ),
-            new Divider(),
-            new ListTile(
-              title: new Text("Listas"),
-              trailing: new Icon(Icons.list),
-              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                builder: (BuildContext context) => Listas(),
-              )),
-            ),
-            new Divider(),
-            new ListTile(
-              title: new Text("Meus Arquivos"),
-              trailing: new Icon(Icons.school),
-              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                //builder: (BuildContext context) => Nosotros(),
-              )),
-            ),
-            new Divider(),
-            new ListTile(
-              title: new Text("Preferências"),
-              trailing: new Icon(Icons.settings),
-              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                builder: (BuildContext context) => Preferencias(),
-              )),
-            ),
-            new Divider(),
-            new ListTile(
-              title: new Text("Sair"),
-              trailing: new Icon(Icons.exit_to_app),
-              onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                builder: (BuildContext context) => LoginPage(),
-              )),
-            ),
-          ],
+              new Divider(),
+              new ListTile(
+                title: new Text("Perfil"),
+                trailing: new Icon(Icons.person),
+                onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (BuildContext context) => Perfil(),
+                )),
+              ),
+              new Divider(),
+              new ListTile(
+                title: new Text("Favoritos"),
+                trailing: new Icon(Icons.favorite),
+                onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (BuildContext context) => Favoritos(),
+                )),
+              ),
+              new Divider(),
+              new ListTile(
+                title: new Text("Listas"),
+                trailing: new Icon(Icons.list),
+                onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (BuildContext context) => Listas(),
+                )),
+              ),
+              new Divider(),
+              new ListTile(
+                title: new Text("Meus Arquivos"),
+                trailing: new Icon(Icons.school),
+                onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                  //builder: (BuildContext context) => Nosotros(),
+                )),
+              ),
+              new Divider(),
+              new ListTile(
+                title: new Text("Preferências"),
+                trailing: new Icon(Icons.settings),
+                onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (BuildContext context) => Preferencias(),
+                )),
+              ),
+              new Divider(),
+              new ListTile(
+                title: new Text("Sair"),
+                trailing: new Icon(Icons.exit_to_app),
+                onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                  builder: (BuildContext context) => LoginPage(),
+                )),
+              ),
+            ],
+          ),
         ),
-      ),
         backgroundColor: Colors.transparent,
-        body: 
-        //body: _pageOptions[_selectPage],
-        new TabBarView(
+        // O CORPO DA APP, AS TABS PRINCIPAIS
+        body: new TabBarView(
           controller: controller,
           children: <Widget>[
             new todo.Todo(),
@@ -170,6 +203,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with Si
             new game.Game()
           ],
         ),
+        // OS 3 BOTOES DA PARTE INFERIOR
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedPage,
           onTap: (int index){
