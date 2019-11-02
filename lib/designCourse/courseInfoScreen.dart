@@ -56,7 +56,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
               children: <Widget>[
                 AspectRatio(
                   aspectRatio: 1.2,
-                  child: Image.asset('assets/design_course/webInterFace.png'),
+                  child: Image.asset('assets/images/autocad.jpg'),
                 ),
               ],
             ),
@@ -94,11 +94,11 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                             padding: const EdgeInsets.only(
                                 top: 32.0, left: 18, right: 16),
                             child: Text(
-                              "Web Design\nCourse",
+                              "AutoCAD Curso",
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
-                                fontSize: 22,
+                                fontSize: 24,
                                 letterSpacing: 0.27,
                                 color: DesignCourseAppTheme.darkerText,
                               ),
@@ -112,11 +112,11 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 Text(
-                                  "\$28.99",
+                                  "Autor: Cristiano Ronaldo",
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w200,
-                                    fontSize: 22,
+                                    fontSize: 16,
                                     letterSpacing: 0.27,
                                     color: DesignCourseAppTheme.nearlyBlue,
                                   ),
@@ -152,9 +152,9 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                               padding: EdgeInsets.all(8),
                               child: Row(
                                 children: <Widget>[
-                                  getTimeBoxUI("24", "Classe"),
-                                  getTimeBoxUI("2hours", "Time"),
-                                  getTimeBoxUI("24", "Seat"),
+                                  getTimeBoxUI("Vídeo", "Tipo"),
+                                  getTimeBoxUI("25 min", "Duração"),
+                                  getTimeBoxUI("Sim", "Baixar"),
                                 ],
                               ),
                             ),
@@ -167,7 +167,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                 padding: const EdgeInsets.only(
                                     left: 16, right: 16, top: 8, bottom: 8),
                                 child: Text(
-                                  "Lorem ipsum is simply dummy text of printing & typesetting industry, Lorem ipsum is simply dummy text of printing & typesetting industry.",
+                                  "Vídeos explicativos de aspectos gerais para iniciar o aprendizado no software AutoCAD.",
                                   textAlign: TextAlign.justify,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w200,
@@ -233,7 +233,7 @@ class _CourseInfoScreenState extends State<CourseInfoScreen>
                                       ),
                                       child: Center(
                                         child: Text(
-                                          "Join Course",
+                                          "Adicionar OA",
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                             fontWeight: FontWeight.w600,

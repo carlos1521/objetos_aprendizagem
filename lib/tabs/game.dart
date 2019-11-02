@@ -3,7 +3,7 @@ import 'package:best_flutter_ui_templates/designCourse/courseInfoScreen.dart';
 import 'package:best_flutter_ui_templates/designCourse/designCourseAppTheme.dart';
 import 'package:best_flutter_ui_templates/designCourse/popularCourseListView.dart';
 
-class Todo extends StatelessWidget {
+class Game extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +39,7 @@ class Todo extends StatelessWidget {
                               Flexible(
                                 child: PopularCourseListView(
                                   callBack: () {
-                                    Navigator.push(
-                                      context,MaterialPageRoute(
-                                        builder: (context) => CourseInfoScreen(),
-                                      ),
-                                    );
+                                    Navigator.push(context,MaterialPageRoute(builder: (context) => CourseInfoScreen(),),);
                                   },
                                 ),
                               ),

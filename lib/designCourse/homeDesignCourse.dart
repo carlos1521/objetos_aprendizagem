@@ -9,7 +9,13 @@ import 'package:best_flutter_ui_templates/pages/perfil_page.dart';
 import 'package:best_flutter_ui_templates/pages/preferencias_page.dart';
 import 'package:flutter/material.dart';
 import 'designCourseAppTheme.dart';
-import 'package:best_flutter_ui_templates/FirstPage.dart' as first;
+import 'package:best_flutter_ui_templates/tabs/todo.dart' as todo;
+import 'package:best_flutter_ui_templates/tabs/video.dart' as video;
+import 'package:best_flutter_ui_templates/tabs/livro.dart' as livro;
+import 'package:best_flutter_ui_templates/tabs/artigo.dart' as artigo;
+import 'package:best_flutter_ui_templates/tabs/audio.dart' as audio;
+import 'package:best_flutter_ui_templates/tabs/site.dart' as site;
+import 'package:best_flutter_ui_templates/tabs/game.dart' as game;
 
 class DesignCourseHomeScreen extends StatefulWidget {
   @override
@@ -24,7 +30,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with Si
    @override
   void initState() {
     super.initState();
-    controller = new TabController(vsync: this, length: 6);
+    controller = new TabController(vsync: this, length: 7);
   }
 
   @override
@@ -73,6 +79,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with Si
             new Tab(icon: new Icon(Icons.book),text: 'Livro'),
             new Tab(icon: new Icon(Icons.school),text: 'Artigo'),
             new Tab(icon: new Icon(Icons.library_music),text: 'Áudio'),
+            new Tab(icon: new Icon(Icons.link),text: 'Site'),
             new Tab(icon: new Icon(Icons.games),text: 'Game'),
             ]
           ),
@@ -154,12 +161,13 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with Si
         new TabBarView(
           controller: controller,
           children: <Widget>[
-            new first.First(),
-            new first.First(),
-            new first.First(),
-            new first.First(),
-            new first.First(),
-            new first.First()
+            new todo.Todo(),
+            new video.Video(),
+            new livro.Livro(),
+            new artigo.Artigo(),
+            new audio.Audio(),
+            new site.Site(),
+            new game.Game()
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -234,6 +242,11 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with Si
                 width: 8,
               ),
               getButtonUI(
+                  CategoryType.sites, categoryType == CategoryType.sites),
+              SizedBox(
+                width: 8,
+              ),
+              getButtonUI(
                   CategoryType.games, categoryType == CategoryType.games),
             ],
           ),
@@ -298,6 +311,8 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with Si
       txt = 'Artigo';
     } else if (CategoryType.audios == categoryTypeData) {
       txt = 'Áudio';
+    } else if (CategoryType.sites == categoryTypeData) {
+      txt = 'Site';
     } else if (CategoryType.games == categoryTypeData) {
       txt = 'Game';
     }
@@ -490,5 +505,6 @@ enum CategoryType {
   livros,
   artigos,
   audios,
+  sites,
   games,
 }
