@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:best_flutter_ui_templates/designCourse/courseInfoScreen.dart';
 import 'package:best_flutter_ui_templates/designCourse/designCourseAppTheme.dart';
 import 'package:best_flutter_ui_templates/designCourse/popularCourseListView.dart';
+import 'package:share/share.dart';
 
 import '../main.dart';
 
@@ -117,28 +118,32 @@ class _TodoState extends State<Todo> {
                                                       ),
                                                       Container(
                                                         child: Row(
-                                                          children: <Widget>[
-                                                            Text(
-                                                              arregloxyz['ranking'],
-                                                              textAlign:
-                                                              TextAlign.left,
-                                                              style: TextStyle(
-                                                                fontWeight:
-                                                                FontWeight.w200,
-                                                                fontSize: 18,
-                                                                letterSpacing: 0.27,
-                                                                color:
-                                                                DesignCourseAppTheme
-                                                                    .grey,
+                                                          children: [
+                                                            Expanded(
+                                                              /*1*/
+                                                              child: Column(
+                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                children: [
+                                                                  /*2*/
+                                                                  Container(
+                                                                    padding: const EdgeInsets.only(bottom: 8),
+                                                                    child: Text(
+                                                                      "Tipo: $tipo",
+                                                                      style: TextStyle(
+                                                                        fontWeight: FontWeight.normal,
+                                                                        fontSize: 12,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ),
+                                                            /*3*/
                                                             Icon(
                                                               Icons.star,
-                                                              color:
-                                                              DesignCourseAppTheme
-                                                                  .nearlyBlue,
-                                                              size: 20,
+                                                              color: Colors.orange,
                                                             ),
+                                                            Text(arregloxyz['ranking']),
                                                           ],
                                                         ),
                                                       )
@@ -253,7 +258,7 @@ class Detalle extends StatelessWidget {
           ),
         ),*/
           new Container(
-              height: 387.0,//tamaño de la segunda imagen
+              height: 300.0,//tamaño de la imagem dentro de cada Card
               child: new Hero(
                 tag: nombre,
                 child: new Material(
@@ -268,6 +273,7 @@ class Detalle extends StatelessWidget {
           new IniciarNombre(
             nombre: nombre,
             autor: autor,
+            datacriacao: datacriacao,
             ranking: ranking,
           ),
           new IniciarIcon(),
@@ -282,9 +288,10 @@ class Detalle extends StatelessWidget {
 }
 
 class IniciarNombre extends StatelessWidget {
-  IniciarNombre({this.nombre,this.autor,this.ranking});
+  IniciarNombre({this.nombre,this.autor,this.datacriacao,this.ranking});
   final String nombre;
   final String autor;
+  final String datacriacao;
   final String ranking;
 
   @override
@@ -299,11 +306,30 @@ class IniciarNombre extends StatelessWidget {
               children: <Widget>[
                 new Text(
                   nombre,
-                  style: new TextStyle(fontSize: 20.0, color: Colors.blue),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 24,
+                    letterSpacing: 0.27,
+                    color: DesignCourseAppTheme.darkerText,
+                  ),
                 ),
                 new Text(
-                  autor,
-                  style: new TextStyle(fontSize: 15.0, color: Colors.blueGrey),
+                  "Autor: $autor",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w200,
+                    fontSize: 14,
+                    letterSpacing: 0.27,
+                    color: DesignCourseAppTheme.nearlyBlue,
+                  ),
+                ),
+                new Text(
+                  "Data Criação: $datacriacao",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w200,
+                    fontSize: 14,
+                    letterSpacing: 0.27,
+                    color: DesignCourseAppTheme.grey,
+                  ),
                 ),
               ],
             ),
@@ -313,7 +339,7 @@ class IniciarNombre extends StatelessWidget {
               new Icon(//icono que agrega estrellas calificacion
                 Icons.star,
                 size: 30.0,
-                color: Colors.red,
+                color: Colors.orange,
               ),
               new Icon(
                 Icons.star,
@@ -323,7 +349,17 @@ class IniciarNombre extends StatelessWidget {
               new Icon(
                 Icons.star,
                 size: 30.0,
-                color: Colors.purple,
+                color: Colors.orange,
+              ),
+              new Icon(
+                Icons.star,
+                size: 30.0,
+                color: Colors.orange,
+              ),
+              new Icon(
+                Icons.star,
+                size: 30.0,
+                color: Colors.orange,
               ),
               new Text(
                 ranking,
@@ -343,18 +379,66 @@ class IniciarIcon extends StatelessWidget {
     return Container(
       padding: new EdgeInsets.all(10.0),
       child: new Row(
-        children: <Widget>[
-          new IconTec(
-              icon: Icons.call,
-              tec: "Llamar"
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Column(
+            children: [
+              IconButton(
+                  icon: Icon(Icons.share),
+                  iconSize: 38.0,
+                  color: Colors.blue,
+                  onPressed: (){
+                    Share.share("Share with");
+                  },
+              ),
+              Text(
+                'Compartilhar',
+                style: TextStyle(
+                  fontWeight: FontWeight.w200,
+                  fontSize: 12,
+                  letterSpacing: 0.27,
+                  color: Colors.blue,
+                ),
+              ),
+            ],
           ),
-          new IconTec(
-              icon: Icons.message,
-              tec: "WhastApp"
+          Column(
+            children: [
+              IconButton(
+                icon: Icon(Icons.favorite),
+                iconSize: 38.0,
+                color: Colors.blue,
+                onPressed: (){},
+              ),
+              Text(
+                'Favorito',
+                style: TextStyle(
+                  fontWeight: FontWeight.w200,
+                  fontSize: 12,
+                  letterSpacing: 0.27,
+                  color: Colors.blue,
+                ),
+              ),
+            ],
           ),
-          new IconTec(
-              icon: Icons.photo,
-              tec: "Foto"
+          Column(
+            children: [
+              IconButton(
+                icon: Icon(Icons.add),
+                iconSize: 38.0,
+                color: Colors.blue,
+                onPressed: (){},
+              ),
+              Text(
+                'Adicionar',
+                style: TextStyle(
+                  fontWeight: FontWeight.w200,
+                  fontSize: 12,
+                  letterSpacing: 0.27,
+                  color: Colors.blue,
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -399,7 +483,7 @@ class Informacion extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: new Text(
             descripcion,
-            style: new TextStyle(fontSize: 16.0, color: Colors.blue),
+            style: new TextStyle(fontSize: 16.0, color: Colors.grey[800]),
           ),
         ),
       ),
