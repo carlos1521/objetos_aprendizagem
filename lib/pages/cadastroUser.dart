@@ -103,7 +103,8 @@ class _RegisterFormState extends State<RegisterForm> {
                 GestureDetector(
                   onTap: () => _setAgreedToTOS(!_agreedToTOS),
                   child: const Text(
-                    'Ao se inscrever, você concorda com os Termos de Serviço e Política de Privacidade',
+                    "Ao se inscrever, você concorda com os Termos de Serviço e Política de Privacidade",
+                      style: TextStyle(fontSize: 10.0)
                   ),
                 ),
               ],
