@@ -1,4 +1,3 @@
-//import 'package:best_flutter_ui_templates/designCourse/categoryListView.dart';
 import 'package:best_flutter_ui_templates/designCourse/courseInfoScreen.dart';
 import 'package:best_flutter_ui_templates/designCourse/popularCourseListView.dart';
 import 'package:best_flutter_ui_templates/main.dart';
@@ -8,6 +7,7 @@ import 'package:best_flutter_ui_templates/pages/login.page.dart';
 import 'package:best_flutter_ui_templates/pages/perfil_page.dart';
 import 'package:best_flutter_ui_templates/pages/preferencias_page.dart';
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'designCourseAppTheme.dart';
 import 'package:best_flutter_ui_templates/tabs/todo.dart' as todo;
 import 'package:best_flutter_ui_templates/tabs/video.dart' as video;
@@ -16,6 +16,7 @@ import 'package:best_flutter_ui_templates/tabs/artigo.dart' as artigo;
 import 'package:best_flutter_ui_templates/tabs/audio.dart' as audio;
 import 'package:best_flutter_ui_templates/tabs/site.dart' as site;
 import 'package:best_flutter_ui_templates/tabs/game.dart' as game;
+import 'package:best_flutter_ui_templates/cadastroOA.dart';
 
 class DesignCourseHomeScreen extends StatefulWidget {
   @override
@@ -24,9 +25,25 @@ class DesignCourseHomeScreen extends StatefulWidget {
 
 class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with SingleTickerProviderStateMixin {
   CategoryType categoryType = CategoryType.videos;
+  List<DropdownMenuItem<int>> listDrop = [];
 
-   TabController controller;
-   
+  TabController controller;
+
+  void loadData() {
+    listDrop.add(new DropdownMenuItem(
+      child: new Text('2019'),
+      value: 2019,
+    ));
+    listDrop.add(new DropdownMenuItem(
+      child: new Text('2018'),
+      value: 2018,
+    ));
+    listDrop.add(new DropdownMenuItem(
+      child: new Text('2017'),
+      value: 2017,
+    ));
+  }
+
    @override
   void initState() {
     super.initState();
@@ -42,6 +59,11 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with Si
   //int _currentIndex = 0;
   //List<Widget> _tabList = [];
   int _selectedPage = 0;
+  final _pageOptions = [
+    DesignCourseHomeScreen(),
+    Listas(),
+    CadastroOA(),
+  ];
  
   List<Container> listamos = List();
   var arreglox = [
@@ -65,6 +87,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with Si
 
   @override
   Widget build(BuildContext context) {
+    loadData();
     return Container(
       color: DesignCourseAppTheme.nearlyWhite,
       child: Scaffold(
@@ -93,6 +116,43 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with Si
                   flex: 0,
                   child: Row(
                     children: <Widget>[
+                      IconButton(
+                        onPressed: () {
+                          return Alert(
+                          context: context,
+                          title: "Filtrar OAs",
+                          desc: "Seleccione os filtros",
+                          buttons: [
+                            DialogButton(
+                              child: Text("Aplicar"),
+                              onPressed: (){
+                                Navigator.pop(context);
+                              },
+                            ),
+                            DialogButton(
+                              child: Text("Limpar"),
+                              onPressed: (){
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ],
+                          content: Form(
+                              child: Column(
+                              children: <Widget>[
+                                TextFormField(
+                                  decoration: InputDecoration(labelText: "Ano de Publicação"),
+                                ),
+                                new DropdownButton(
+                                    items: listDrop,
+                                    onChanged: null,
+                                ),
+                              ],
+                              )
+                          )
+                          ).show();
+                        },
+                        icon: Icon(Icons.filter_list, color: Colors.white),
+                      ),
                       IconButton(
                         onPressed: () {},
                         icon: Icon(Icons.mic, color: Colors.white),
@@ -164,7 +224,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with Si
               ),
               new Divider(),
               new ListTile(
-                title: new Text("Meus Arquivos"),
+                title: new Text("Meus OAs"),
                 trailing: new Icon(Icons.school),
                 onTap: () => Navigator.of(context).push(new MaterialPageRoute(
                   //builder: (BuildContext context) => Nosotros(),
@@ -190,8 +250,10 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with Si
           ),
         ),
         backgroundColor: Colors.transparent,
-        // O CORPO DA APP, AS TABS PRINCIPAIS
-        body: new TabBarView(
+        // ESTA PARTE É O CORPO DA APP. SAO AS TABS PRINCIPAIS
+        body:
+        //_pageOptions[_selectedPage],
+        TabBarView(
           controller: controller,
           children: <Widget>[
             new todo.Todo(),

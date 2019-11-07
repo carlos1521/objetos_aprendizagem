@@ -203,8 +203,8 @@ class _VideoState extends State<Video> {
   @override
   void initState() {
     _listado();
-    controller = VideoPlayerController.network(
-        "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4");
+    controller = VideoPlayerController.asset(
+        "assets/images/video.mp4");
     futureController = controller.initialize();
     controller.setLooping(true);
     super.initState();
