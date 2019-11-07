@@ -120,7 +120,10 @@ class MeusOA extends StatelessWidget{
       ),
       floatingActionButton: FloatingActionButton(
       onPressed: () {
-        new CadastroOA();
+
+        Navigator.of(context).push(new MaterialPageRoute(
+          builder: (BuildContext context) => CadastroOA(),
+        ));
         //print('Clicked');
       },
       child: Icon(Icons.add),
