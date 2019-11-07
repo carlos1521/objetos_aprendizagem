@@ -1,6 +1,8 @@
 import 'package:best_flutter_ui_templates/designCourse/homeDesignCourse.dart';
 import 'package:flutter/material.dart';
 
+import 'cadastroUser.dart';
+
 //import '../navigationHomeScreen.dart';
 
 class LoginPage extends StatelessWidget {
@@ -175,7 +177,7 @@ class LoginPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => DesignCourseHomeScreen(),
+                      builder: (context) => CadastroUser(),
                     ),
                   );
                 },

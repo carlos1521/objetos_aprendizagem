@@ -1,4 +1,3 @@
-import 'package:best_flutter_ui_templates/designCourse/homeDesignCourse.dart';
 import 'package:flutter/widgets.dart';
 
 class HomeList {

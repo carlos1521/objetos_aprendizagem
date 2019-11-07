@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:best_flutter_ui_templates/designCourse/courseInfoScreen.dart';
 import 'package:best_flutter_ui_templates/designCourse/designCourseAppTheme.dart';
-import 'package:best_flutter_ui_templates/designCourse/popularCourseListView.dart';
 import 'package:share/share.dart';
 
 import '../main.dart';

@@ -53,8 +53,6 @@ flutter:
   assets:
     - assets/images/
     - assets/design_course/
-    - assets/fitness_app/
-    - assets/hotel/
     - assets/logo.png
     - assets/fb-icon.png
 

@@ -4,6 +4,7 @@ import 'package:best_flutter_ui_templates/main.dart';
 import 'package:best_flutter_ui_templates/pages/favoritos_page.dart';
 import 'package:best_flutter_ui_templates/pages/listas_page.dart';
 import 'package:best_flutter_ui_templates/pages/login.page.dart';
+import 'package:best_flutter_ui_templates/pages/meusoa_page.dart';
 import 'package:best_flutter_ui_templates/pages/perfil_page.dart';
 import 'package:best_flutter_ui_templates/pages/preferencias_page.dart';
 import 'package:flutter/material.dart';
@@ -227,7 +228,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with Si
                 title: new Text("Meus OAs"),
                 trailing: new Icon(Icons.school),
                 onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                  //builder: (BuildContext context) => Nosotros(),
+                  builder: (BuildContext context) => MeusOA(),
                 )),
               ),
               new Divider(),
@@ -252,8 +253,10 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with Si
         backgroundColor: Colors.transparent,
         // ESTA PARTE É O CORPO DA APP. SAO AS TABS PRINCIPAIS
         body:
-        //_pageOptions[_selectedPage],
-        TabBarView(
+        /*Center(
+            child: _pageOptions[_selectedPage],
+        ),*/
+        new TabBarView(
           controller: controller,
           children: <Widget>[
             new todo.Todo(),
@@ -262,7 +265,7 @@ class _DesignCourseHomeScreenState extends State<DesignCourseHomeScreen> with Si
             new artigo.Artigo(),
             new audio.Audio(),
             new site.Site(),
-            new game.Game()
+            new game.Game(),
           ],
         ),
         // OS 3 BOTOES DA PARTE INFERIOR
